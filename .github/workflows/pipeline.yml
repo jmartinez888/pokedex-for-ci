@@ -118,9 +118,7 @@ jobs:
       - name: Cypress run 
         uses: cypress-io/github-action@v4
         with:
-          command: npm run test:e2e
-          start: npm run dev
-          wait-on: http://localhost:8080
+          spec: cypress/integration/app.js
 
 
       # - name: Deploy to Heroku
