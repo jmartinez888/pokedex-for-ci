@@ -113,7 +113,14 @@ jobs:
         run: npm run build
       - name: Test
         run: npm test
-
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run 
+        uses: cypress-io/github-action@v4
+        with:
+          command: npm run test:e2e
+          start: npm run dev
+          wait-on: http://localhost:8080
 
 
       # - name: Deploy to Heroku
